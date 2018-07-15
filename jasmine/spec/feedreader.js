@@ -71,16 +71,26 @@ $(function() {
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
-          it('reveals and hides when the hamburger is clicked', function(){
-            // var hamburgerSpy = spyOn(theHamburger, )
+          it('reveals and hides when the hamburger is clicked', function() {
+
             theHamburger.click();
             expect(theMenuHider.className).not.toBe('menu-hidden');
             theHamburger.click();
             expect(theMenuHider.className).toBe('menu-hidden');
 
           });
-
+});
     /* TODO: Write a new test suite named "Initial Entries" */
+    describe('Initial Entries', function() {
+
+      const container = document.querySelector('.feed');
+      let feedIndex = 0;
+
+      beforeEach(function(done){
+        loadFeed(feedIndex, function(){
+          done();
+        });
+      });
 
         /* TODO: Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
@@ -88,8 +98,18 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
+         it('has at least one entry per feed', function(done) {
+           for(feedIndex=0; allFeeds.length - 1; feedIndex++){
+             loadFeed(feedIndex);
+             expect(container.length).not.toBe(0);
+             done();
+           };
+         });
 });
     /* TODO: Write a new test suite named "New Feed Selection" */
+    describe('New Feed Selection', function() {
+
+    })
 
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
