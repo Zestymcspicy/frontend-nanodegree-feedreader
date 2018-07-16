@@ -109,10 +109,31 @@ $(function() {
     /* TODO: Write a new test suite named "New Feed Selection" */
     describe('New Feed Selection', function() {
 
-    })
+      let feedIndex = 0;
+      let container = document.querySelector('.feed');
+
+      beforeEach(function(done){
+        loadFeed(feedIndex, function(){
+          done();
+        });
+      });
+      let content = container.innerHTML
+      let oldContent = content;
+
 
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+
+         it('the feed content actually changes', function(done) {
+           for(feedIndex=1; allFeeds.length - 1; feedIndex++){
+             content = container.innerHTML;
+             loadFeed(feedIndex);
+             expect(content).not.toEqual(oldContent)
+             done();
+             oldContent = content;
+           };
+        });
+     });
 }());
