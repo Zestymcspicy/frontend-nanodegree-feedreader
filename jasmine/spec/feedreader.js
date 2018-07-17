@@ -63,7 +63,7 @@ $(function() {
          * hiding/showing of the menu element.
          */
          it('is initially hidden', function(){
-           expect(theMenuHider.className).toBe('menu-hidden');
+           expect(theMenuHider.classList.contains('menu-hidden')).toBe(true);
          });
 
          /* TODO: Write a test that ensures the menu changes
@@ -74,9 +74,9 @@ $(function() {
           it('reveals and hides when the hamburger is clicked', function() {
 
             theHamburger.click();
-            expect(theMenuHider.className).not.toBe('menu-hidden');
+            expect(theMenuHider.classList.contains('menu-hidden')).not.toBe(true);
             theHamburger.click();
-            expect(theMenuHider.className).toBe('menu-hidden');
+            expect(theMenuHider.classList.contains('menu-hidden')).toBe(true);
 
           });
 });
