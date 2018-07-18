@@ -83,7 +83,6 @@ $(function() {
     /* TODO: Write a new test suite named "Initial Entries" */
     describe('Initial Entries', function() {
 
-      const container = document.querySelector('.feed');
       let feedIndex = 0;
 
       beforeEach(function(done){
@@ -91,6 +90,7 @@ $(function() {
           done();
         });
       });
+
 
         /* TODO: Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
@@ -100,6 +100,7 @@ $(function() {
          */
          it('has at least one entry per feed', function(done) {
            for(feedIndex=0; allFeeds.length - 1; feedIndex++){
+             const container = document.querySelector('.feed');
              loadFeed(feedIndex);
              expect(container.length).not.toBe(0);
              done();
@@ -110,16 +111,16 @@ $(function() {
     describe('New Feed Selection', function() {
 
       let feedIndex = 0;
-      let container = document.querySelector('.feed');
 
       beforeEach(function(done){
         loadFeed(feedIndex, function(){
           done();
         });
       });
+
+      let container = document.querySelector('.feed');
       let content = container.innerHTML
       let oldContent = content;
-
 
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
